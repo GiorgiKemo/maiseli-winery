@@ -1,9 +1,12 @@
 const menuButton=document.querySelector('.menu-toggle');
 const navigation=document.querySelector('#navigation');
-function closeMenu(){menuButton.setAttribute('aria-expanded','false');navigation.classList.remove('is-open');}
-menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));navigation.classList.toggle('is-open',open);});
+function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton.querySelector('.menu-label').textContent='Menu';navigation.classList.remove('is-open');}
+menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));navigation.classList.toggle('is-open',open);menuButton.querySelector('.menu-label').textContent=open?'Close':'Menu';});
 navigation.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){closeMenu();menuButton.focus();}});
+document.addEventListener('click',event=>{if(!event.target.closest('.site-header'))closeMenu();});
+navigation.addEventListener('focusout',event=>{if(!navigation.contains(event.relatedTarget)&&!menuButton.contains(event.relatedTarget))closeMenu();});
+matchMedia('(min-width: 961px)').addEventListener('change',closeMenu);
 document.querySelector('#year').textContent=new Date().getFullYear();
 
 const collections={
@@ -32,7 +35,8 @@ function selectCollection(key){
  tabs.forEach(tab=>{const active=tab.dataset.collection===key;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
  panel.setAttribute('aria-labelledby',`tab-${key}`);
  document.querySelector('#collection-description').textContent=collection.description;
- grid.innerHTML=collection.wines.map((wine,index)=>`<button class="wine-card" data-wine="${index}" aria-label="Discover ${wine.name}, ${wine.type}" style="animation-delay:${index*35}ms"><div class="wine-image"><span class="wine-number">0${index+1}${wine.cellar?' / THE CELLAR':''}</span><img src="assets/${wine.image}.webp" alt="${wine.cellar?'French oak barrels in Maiseli’s cellar':`Maiseli ${wine.name} ${wine.type} bottle`}" class="${wine.cellar?'wine-image-cellar':''}" width="820" height="1200" loading="lazy"></div><div class="wine-title"><h3>${wine.name}</h3><span aria-hidden="true"><svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></span></div><p>${wine.type.toUpperCase()}</p><span class="wine-detail-link">Discover the wine</span></button>`).join('');
+ grid.innerHTML=collection.wines.map((wine,index)=>`<button class="wine-card" data-wine="${index}" aria-label="Discover ${wine.name}, ${wine.type}" style="animation-delay:${index*35}ms"><div class="wine-image"><span class="wine-number">0${index+1}${wine.cellar?' / THE CELLAR':''}</span><img src="assets/${wine.image}.webp" alt="${wine.cellar?'French oak barrels in Maiseli’s cellar':`Maiseli ${wine.name} ${wine.type} bottle`}" class="${wine.cellar?'wine-image-cellar':''}" width="820" height="1200" loading="lazy"></div><div class="wine-title"><h3>${wine.name}</h3></div><p>${wine.type.toUpperCase()}</p><span class="wine-detail-link">Discover the wine <span aria-hidden="true"><svg class="ui-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></span></span></button>`).join('');
 }
 tabs.forEach((tab,index)=>{
  tab.addEventListener('click',()=>selectCollection(tab.dataset.collection));
@@ -58,6 +62,7 @@ grid.addEventListener('click',event=>{
  document.querySelector('#wine-dialog-image').innerHTML=`<img src="assets/${wine.image}.webp" alt="${wine.cellar?'French oak barrels in the Maiseli cellar':`Maiseli ${wine.name} bottle`}" class="${wine.cellar?'wine-image-cellar':''}">`;
  document.querySelector('#wine-dialog-facts').innerHTML=`<div><dt>Origin</dt><dd>Georgia</dd></div>${wine.grape?`<div><dt>Grape variety</dt><dd>${wine.grape}</dd></div>`:''}<div><dt>Winemaking</dt><dd>${wine.method}</dd></div>`;
  wineDialog.showModal();
+ wineDialog.querySelector('.dialog-scroll').scrollTop=0;
 });
 const processImages={qvevri:['qvevri','A qvevri opening set into the brick floor of Maiseli’s cellar'],heritage:['barrels','French oak barrels in the Maiseli cellar'],sweet:['vineyard-family','A member of the Maiseli family during the harvest']};
 const details=[...document.querySelectorAll('[data-process]')];
