@@ -9,3 +9,5 @@
 @media(max-width:380px){.wine-image{height:235px}.wine-card h3{font-size:22px}.hero h1{font-size:67px}.hero-bottom>span{font-size:7px}.hero-bottom a{font-size:9px}.process-list h3{font-size:25px}.gallery-item>img{height:360px}}
 @media(max-width:700px){.collection-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;overflow:visible;padding:0}.collection-tabs button{white-space:normal;line-height:1.6;text-align:left;min-height:66px}.collection-tabs button span{white-space:nowrap}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+.arrow-icon{display:inline-block;vertical-align:middle;flex-shrink:0}
