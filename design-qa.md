@@ -31,3 +31,18 @@ No actionable P0/P1/P2 differences found within the selected component scope. Th
 ## Follow-up polish
 
 None required for this change. Tests used Chromium viewport emulation, not physical iPhone Safari.
+
+## Next.js and Tailwind migration — 24 September 2026
+
+final result: passed
+
+The Next.js App Router statically renders the original page body from `dist/index.html`. The existing stylesheet and interaction script are served from `public`, and Tailwind v4 is included without Preflight so it does not reset the source design. This keeps all site wording and existing behavior intact during the framework migration.
+
+- Production build: `npm run build` passed; `/` prerendered as static content. `npm run check` passed with `next typegen` and TypeScript.
+- Visual inspection: Codex in-app browser captures checked at 1440x900, 930x480, and 390x844. The primary CTA and hero footer label have no bounding-box intersection at any tested size. At 390px, document width equals viewport width (no horizontal overflow).
+- At 930x480, the desktop CTA sits below the initial fold because the short-height hero retains its minimum height; scrolling to the CTA leaves the footer label well below it rather than on top of it.
+- Interactions: responsive menu open/Escape close; semi-sweet collection selection; Kindzmarauli detail dialog open/Escape close with focus restored; winemaking accordion changes its image; cellar gallery opens and closes.
+- Local HTTP: `/`, `/app.js`, `/styles.css`, `/assets/vineyard-sunset.webp`, and `/favicon.svg` returned 200. All 18 copied images and the copied script, stylesheet, and favicon match their `dist` sources byte-for-byte.
+- Browser console: no errors or warnings during the checks.
+
+Screenshots were captured and visually inspected in the in-app browser during this task; the browser tool did not save them as repository files.

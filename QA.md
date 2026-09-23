@@ -41,3 +41,12 @@ The current pass covers the complete one-page site, all three wine collections, 
 Tests used the Chromium in-app browser and viewport emulation, not a physical iPhone or Safari. This is a broad visual and interaction audit, not an exhaustive assistive-technology certification. The existing private Sites audience is retained during publication; deployment status is verified separately through Sites.
 
 Contact details, exact location, official logo artwork, and the Heritage Rkatsiteli bottle photograph are still client inputs. Heritage Rkatsiteli continues to use an explicitly labelled real cellar photograph. No purchase, contact form, or booking service is presented as operational.
+
+## Next.js migration — 24 September 2026
+
+- The Next.js 16 App Router production build passes and statically prerenders the homepage.
+- TypeScript check passes via `npm run check` (`next typegen` followed by `tsc --noEmit`).
+- Browser review at 1440x900, 930x480, and 390x844 confirms the hero CTA and bottom label do not overlap; the 390px page has no horizontal overflow.
+- Menu, wine collection selection, wine detail dialog, winemaking accordion, and cellar gallery were exercised in the local browser. No console errors or warnings.
+- Next-served route and key static resources returned HTTP 200. The 18 copied image assets plus stylesheet, script, and favicon are byte-for-byte identical to the prior static source.
+- Vercel production status will be recorded after the authorized push to `main`.

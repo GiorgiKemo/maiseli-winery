@@ -1,8 +1,8 @@
 # Maiseli Winery
 
-A responsive, static winery website inspired by the visual approach of frug.rs, with original Maiseli content and supplied photography.
+A responsive Maiseli Winery website built with Next.js and Tailwind CSS, with original winery content and supplied photography.
 
-Run `npm start` and open http://localhost:4318. Requires Node.js; no dependencies or installation are needed. Run `npm run check` for JavaScript syntax checks. The `dist` directory is the complete deployable website.
+Install dependencies with `npm install`, then run `npm run dev` and open http://localhost:3000. Use `npm run build` to create a production build, `npm start` to serve it, and `npm run check` to type-check the app. The original page copy, styling, and interaction script are retained in `dist` as the source of truth; files served by Next.js are in `public`.
 
 ## Content and assets
 
