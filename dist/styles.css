@@ -47,3 +47,4 @@ dialog{overflow:hidden;border-radius:4px}.dialog-scroll{max-height:90svh;overflo
 @media(max-height:600px) and (min-width:701px){.hero{min-height:730px}.hero-content{padding-top:170px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 .menu-toggle .menu-label{font-size:14px;line-height:1.4}
+@media(min-width:701px){.hero-bottom{bottom:12px}}
