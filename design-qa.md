@@ -44,6 +44,7 @@ The Next.js App Router statically renders the original page body from `dist/inde
 - Interactions: responsive menu open/Escape close; semi-sweet collection selection; Kindzmarauli detail dialog open/Escape close with focus restored; winemaking accordion changes its image; cellar gallery opens and closes.
 - Local HTTP: `/`, `/app.js`, `/styles.css`, `/assets/vineyard-sunset.webp`, and `/favicon.svg` returned 200. All 18 copied images and the copied script, stylesheet, and favicon match their `dist` sources byte-for-byte.
 - Vercel project inspection found legacy `Other`/`dist` settings; the repo config now explicitly selects Next.js and restores its framework-default output directory so those settings cannot keep serving the old static build.
+- Vercel reported commit `2f9b516` as `READY`, with the production alias assigned to that deployment; the public homepage returned Next runtime chunks and key assets returned HTTP 200.
 - Browser console: no errors or warnings during the checks.
 
 Screenshots were captured and visually inspected in the in-app browser during this task; the browser tool did not save them as repository files.

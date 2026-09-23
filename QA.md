@@ -49,4 +49,5 @@ Contact details, exact location, official logo artwork, and the Heritage Rkatsit
 - Browser review at 1440x900, 930x480, and 390x844 confirms the hero CTA and bottom label do not overlap; the 390px page has no horizontal overflow.
 - Menu, wine collection selection, wine detail dialog, winemaking accordion, and cellar gallery were exercised in the local browser. No console errors or warnings.
 - Next-served route and key static resources returned HTTP 200. The 18 copied image assets plus stylesheet, script, and favicon are byte-for-byte identical to the prior static source.
-- Vercel project inspection found saved `Other` and `dist` settings that overrode repository defaults. `vercel.json` now selects Next.js and resets the output directory to the framework default for each deployment; production verification is pending.
+- Vercel project inspection found saved `Other` and `dist` settings that overrode repository defaults. `vercel.json` now selects Next.js and resets the output directory to the framework default per deployment.
+- The `2f9b516` production deployment reached `READY`; `maiseli-winery.vercel.app` now serves Next runtime chunks, and the homepage, app script, stylesheet, and hero image returned HTTP 200.
