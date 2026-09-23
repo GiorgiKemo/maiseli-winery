@@ -50,3 +50,8 @@ dialog{overflow:hidden;border-radius:4px}.dialog-scroll{max-height:90svh;overflo
 @media(min-width:701px){.hero-bottom{bottom:12px}}
 #gallery-dialog{width:fit-content}
 #gallery-dialog .dialog-close{color:var(--paper);background:#1b211a;border-color:var(--paper)}
+.site-header{position:fixed;background:transparent;transition:background-color .25s ease}
+.site-header.is-scrolled{background:rgba(44,51,42,.96);backdrop-filter:blur(12px)}
+html{scroll-padding-top:120px}
+@media(max-width:700px){html{scroll-padding-top:110px}}
+.hero:after{background:linear-gradient(90deg,#13201a7a,#13201a20 85%),linear-gradient(0deg,#101c198c,transparent 45%,#25313225)}

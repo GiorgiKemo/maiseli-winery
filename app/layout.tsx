@@ -20,7 +20,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link
           rel="preload"
-          href="/assets/vineyard-sunset.webp"
+          href="/assets/vineyard-sunset.jpg"
           as="image"
           fetchPriority="high"
         />
