@@ -68,13 +68,13 @@ grid.addEventListener('click',event=>{
  wineDialog.showModal();
  wineDialog.querySelector('.dialog-scroll').scrollTop=0;
 });
-const processImages={qvevri:['qvevri','A qvevri opening set into the brick floor of Maiseli’s cellar'],heritage:['barrels','French oak barrels in the Maiseli cellar'],sweet:['vineyard-family','A member of the Maiseli family during the harvest']};
+const processImages={qvevri:['qvevri','A qvevri opening set into the brick floor of Maiseli’s cellar','assets/qvevri-400.webp 400w, assets/qvevri-640.webp 640w, assets/qvevri.webp 900w',900,1198],heritage:['barrels','French oak barrels in the Maiseli cellar','assets/barrels-480.webp 480w, assets/barrels.webp 900w',900,1200],sweet:['vineyard-family','A member of the Maiseli family during the harvest','assets/vineyard-family-640.webp 640w, assets/vineyard-family-960.webp 960w, assets/vineyard-family-1200.webp 1200w, assets/vineyard-family.webp 1800w',1800,1200]};
 const details=[...document.querySelectorAll('[data-process]')];
 details.forEach(detail=>detail.addEventListener('toggle',()=>{
  if(!detail.open)return;
  details.forEach(other=>{if(other!==detail)other.open=false;});
- const [src,alt]=processImages[detail.dataset.process],image=document.querySelector('#process-image');
- image.src=`assets/${src}.webp`;image.alt=alt;
+ const [src,alt,srcset,width,height]=processImages[detail.dataset.process],image=document.querySelector('#process-image');
+ image.srcset=srcset;image.sizes='(max-width: 700px) 88vw, 36vw';image.src=`assets/${src}.webp`;image.width=width;image.height=height;image.alt=alt;
 }));
 const galleryDialog=document.querySelector('#gallery-dialog');
 document.querySelectorAll('.gallery-item').forEach(button=>button.addEventListener('click',()=>{
