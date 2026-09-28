@@ -60,3 +60,5 @@ html{scroll-padding-top:120px}
 .hero-bottom>a{font-size:clamp(13px,1vw,15px);letter-spacing:0;font-weight:500}
 .hero-bottom>span{font-size:clamp(11px,.8vw,13px);font-weight:500;letter-spacing:.1em}
 .hero-bottom a>.link-label{text-decoration:none}
+.hero{height:100svh}
+.vineyard-facts strong{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}

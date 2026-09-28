@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     siteName: "Maiseli Winery",
     images: [
       {
-        url: "/assets/vineyard-sunset.jpg",
-        width: 1470,
-        height: 1070,
+        url: "/assets/vineyard-sunset-hero.webp",
+        width: 2940,
+        height: 2140,
         alt: "The sun setting over the rows of Maiseli’s family vineyard",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Discover Maiseli, a Georgian family winery with a tradition dating to 1908. Explore our qvevri wines, indigenous grape varieties, and family vineyard.",
     images: [
       {
-        url: "/assets/vineyard-sunset.jpg",
+        url: "/assets/vineyard-sunset-hero.webp",
         alt: "The sun setting over the rows of Maiseli’s family vineyard",
       },
     ],
@@ -52,9 +52,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link
           rel="preload"
-          href="/assets/vineyard-sunset.jpg"
+          href="/assets/vineyard-sunset-hero.webp"
           as="image"
-          type="image/jpeg"
+          type="image/webp"
           fetchPriority="high"
         />
         <link rel="stylesheet" href="/styles.css" />
