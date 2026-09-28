@@ -57,7 +57,7 @@ export default function RootLayout({
           type="image/webp"
           fetchPriority="high"
         />
-        <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/styles.css?v=20260928-stat-numerals" />
       </head>
       <body>{children}</body>
     </html>
