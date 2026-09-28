@@ -56,3 +56,8 @@ html{scroll-padding-top:120px}
 @media(max-width:700px){html{scroll-padding-top:110px}}
 .hero:after{background:linear-gradient(90deg,#13201a7a,#13201a20 85%),linear-gradient(0deg,#101c198c,transparent 45%,#25313225)}
 .hero-image{filter:brightness(1.08)}
+.site-header{border-bottom:0}
+.hero-bottom{font-size:clamp(11px,.8vw,13px);letter-spacing:.1em;font-weight:500}
+.hero-bottom>a{font-size:clamp(13px,1vw,15px);letter-spacing:0;font-weight:500}
+.hero-bottom>span{font-size:clamp(11px,.8vw,13px);font-weight:500;letter-spacing:.1em}
+.hero-bottom a>.link-label{text-decoration:none}
