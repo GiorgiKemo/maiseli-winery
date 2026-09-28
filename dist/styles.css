@@ -62,3 +62,4 @@ html{scroll-padding-top:120px}
 .hero-bottom a>.link-label{text-decoration:none}
 .hero{height:100svh}
 .vineyard-facts strong{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.vineyard-facts>div:nth-child(-n+2)>strong{font-family:Georgia,'Times New Roman',serif;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
